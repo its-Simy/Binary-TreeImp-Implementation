@@ -3,6 +3,7 @@ public class BST {
     BST(){
         root = null;
     }
+    /*
     public boolean insert(int val){
         if(root == null){//means that the tree hasn't been constructed yet
             root = new Node(root,val);
@@ -17,13 +18,13 @@ public class BST {
                 else{
                     current = current.getLeft();
                     if(current.getLeft() == null){
-                        
+
                     }
                 }
 
             }
         }
     }
-
+ */
 
 }
