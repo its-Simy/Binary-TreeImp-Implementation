@@ -3,7 +3,13 @@ public class Node {
     private Node right;
     private int data;
 
-    Node(Node root, int data) {
+    public Node(int data){
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+
+    public Node(Node root, int data) {
         if(root.data < data){
             root.right = new Node(root,data);
         }
@@ -13,6 +19,8 @@ public class Node {
         root.left = null;
         root.right = null;
     }
+
+
 
     public int getData(){
         int num = -1000;
@@ -28,6 +36,12 @@ public class Node {
 
     public Node getRight(){
         return this.right;
+    }
+    public void setLeft(Node node){
+        this.left = node;
+    }
+    public void setRight(Node node){
+        this.right = node;
     }
 
 }
