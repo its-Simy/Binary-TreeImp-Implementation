@@ -1,30 +1,38 @@
 public class BST {
-    Node root;
-    BST(){
+    private Node root;
+
+    public BST(){
         root = null;
     }
-    /*
-    public boolean insert(int val){
-        if(root == null){//means that the tree hasn't been constructed yet
-            root = new Node(root,val);
+
+    public void insert(int data){root = insertRec(this.root,data);}
+
+        private Node insertRec(Node root,int data){
+        if(root == null){
+            root = new Node(data);
+            return root;
         }
-        else{
-            Node current = root;
-            boolean add = false;
-            while(!add){
-                if(current.getData() < val){
-                    current = current.getRight();
-                }
-                else{
-                    current = current.getLeft();
-                    if(current.getLeft() == null){
+        if(data < root.getData()){
+            root.setLeft(insertRec(root.getLeft(),data));
+        } else if (data > root.getData()) {
+            root.setRight(insertRec(root.getRight(),data));
+        }
+        return root;
+    }
 
-                    }
-                }
+    public void inOrderTraversal(){
+        System.out.println("In-order Traversal: ");
+        inOrderRec(root);
+        System.out.println();
+    }
 
-            }
+    private void inOrderRec(Node root){
+        if(root != null){
+            //LVR, Left -> Visit -> Right
+            inOrderRec(root.getLeft());
+            System.out.println(root.getData() + " ");
+            inOrderRec(root.getRight());
         }
     }
- */
 
 }

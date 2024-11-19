@@ -20,8 +20,6 @@ public class Node {
         root.right = null;
     }
 
-
-
     public int getData(){
         int num = -1000;
         if(this.right != null){
@@ -37,9 +35,11 @@ public class Node {
     public Node getRight(){
         return this.right;
     }
+
     public void setLeft(Node node){
         this.left = node;
     }
+
     public void setRight(Node node){
         this.right = node;
     }
