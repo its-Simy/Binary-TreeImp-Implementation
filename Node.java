@@ -27,6 +27,7 @@ public class Node {
         }
         return num;
     }
+    public void setData(int val){this.data = val;}
 
     public Node getLeft(){
         return this.left;

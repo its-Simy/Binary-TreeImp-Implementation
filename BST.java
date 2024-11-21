@@ -82,8 +82,43 @@ public class BST {
     }
 
     //delete a node from the BST
-    public void delete(int data){root = deletRec(root,data);}
+    public void delete(int data){root = deleteRec(root,data);}
 
+    private Node deleteRec(Node root,int data) {
+        if (root == null) {
+            return root;
+        }
+        if(data < root.getData()){
+            root.setLeft(deleteRec(root.getLeft(),data));
+        } else if (data > root.getData()) {
+            root.setRight(deleteRec(root.getRight(),data));
+        }
+       else{
+           //Node with only one child or no child
+           if (root.getLeft() == null){
+               return root.getRight();
+           }
+           else if (root.getRight() == null){
+               return root.getLeft();
+           }
+        }
+       //Node with two children: Get the inorder successor(smallest in the right subtree)
+        root.setData(findMin(root.getRight()));
+       //Delete the inorder successor
+        root.setRight(deleteRec(root.getRight(),root.getData()));
+
+        return root;
+
+    }
+
+    private int findMin(Node root){
+        int minValue = root.getData();
+        while(root.getLeft() != null){
+            root = root.getLeft();
+            minValue = root.getData();
+        }
+        return minValue;
+    }
 
 
 }
